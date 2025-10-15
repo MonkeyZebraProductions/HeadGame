@@ -9,6 +9,7 @@ public class ChangeCameraWithArduino : MonoBehaviour
     [SerializeField] Camera WebCam;
     [SerializeField] int MaxCameraWidth = 576;
     [SerializeField] int MaxCameraHeight = 324;
+    [SerializeField] int FinalClick = 19;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,6 +42,10 @@ public class ChangeCameraWithArduino : MonoBehaviour
             int camWidth = (int)math.remap(0, 19, 16, MaxCameraWidth, (float)currentCount);
             int camHeight = (int)math.remap(0,19,8,MaxCameraHeight,(float)currentCount);
             ResizeRenderTexture(WebCamTexture, WebCam, Mathf.Abs(camWidth), Mathf.Abs(camHeight));
+            if (currentCount == FinalClick)
+            {
+                Debug.Log("Camera Configured");
+            }
         }
     }
 
