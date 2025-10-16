@@ -10,10 +10,12 @@ public class ChangeCameraWithArduino : MonoBehaviour
     [SerializeField] int MaxCameraWidth = 576;
     [SerializeField] int MaxCameraHeight = 324;
     [SerializeField] int FinalClick = 19;
+    bool PuzzleComplete = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         serialController = GameObject.Find("SerialController").GetComponent<SerialController>();
+        ResizeRenderTexture(WebCamTexture, WebCam, 16, 9);
     }
 
     // Update is called once per frame
@@ -21,7 +23,7 @@ public class ChangeCameraWithArduino : MonoBehaviour
     {
         string message = serialController.ReadSerialMessage();
 
-        if (message == null)
+        if (message == null || PuzzleComplete)
         {
             return;
         }
@@ -40,11 +42,13 @@ public class ChangeCameraWithArduino : MonoBehaviour
             Debug.Log("Message arrived: Counter: " + message);
             int currentCount = int.Parse(message);
             int camWidth = (int)math.remap(0, 19, 16, MaxCameraWidth, (float)currentCount);
-            int camHeight = (int)math.remap(0,19,8,MaxCameraHeight,(float)currentCount);
+            int camHeight = (int)math.remap(0,19,9,MaxCameraHeight,(float)currentCount);
             ResizeRenderTexture(WebCamTexture, WebCam, Mathf.Abs(camWidth), Mathf.Abs(camHeight));
             if (currentCount == FinalClick)
             {
                 Debug.Log("Camera Configured");
+                PuzzleComplete = true;
+                //Play Audio File
             }
         }
     }
