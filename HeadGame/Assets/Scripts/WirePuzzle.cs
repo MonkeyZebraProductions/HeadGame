@@ -16,6 +16,8 @@ public class WirePuzzle : MonoBehaviour
         {
             button.color = Color.red;
         }
+        
+            
     }
 
     // Update is called once per frame

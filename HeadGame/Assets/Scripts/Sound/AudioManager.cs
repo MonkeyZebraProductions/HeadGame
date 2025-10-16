@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] float musicVolume;
 
     public Sound[] sounds;
+    public string[] Insults;
 
     void Awake()
     {
