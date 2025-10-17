@@ -47,12 +47,315 @@ MonoBehaviour:
   effectsVolume: 1
   musicVolume: 0.8
   sounds:
-  - clipName: Puzzle Tutorial
-    clip: {fileID: 0}
+  - clipName: Click
+    clip: {fileID: 8300000, guid: 66ca6486901983f42a03c17685f657e4, type: 3}
     isMusic: 0
     threeD: 0
     mute: 0
     loop: 0
     ignorePause: 0
     source: {fileID: 0}
-  Insults: []
+  - clipName: Puzzle Succeeded
+    clip: {fileID: 8300000, guid: aa9b82f32204e8942a2fd7e4763e558d, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Camera Puzzle Start
+    clip: {fileID: 8300000, guid: 2061a48a7fa0a1b41b88ef13aa24927a, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Camera Tuning Start
+    clip: {fileID: 8300000, guid: cc4df50a435865748ac77f2b08c14a68, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Camera Tuning Success
+    clip: {fileID: 8300000, guid: c3ffbebf3368d364d9caa43da8848d8b, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Emotion Puzzle Start Part 1
+    clip: {fileID: 8300000, guid: 6db2328064ab7974aa42ab4f31b9e750, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Emotion Puzzle Start Part 2
+    clip: {fileID: 8300000, guid: db7f35809a29f6b4f95f913894c683c0, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Happy
+    clip: {fileID: 8300000, guid: 7e7de774a6a9bf54cb9ff1ba85a9ee7d, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Happy Responce
+    clip: {fileID: 8300000, guid: 298e1c94e3022c1408d9afdc14ca95df, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Angry
+    clip: {fileID: 8300000, guid: 6f2b8b9e906df4c41bc2a636006e6d06, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Angry Responce
+    clip: {fileID: 8300000, guid: 3d788fa3fc9846148bd388df1910d76b, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Sad
+    clip: {fileID: 8300000, guid: 52666cd124acfde468ae1fcc06cce7b0, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Sad Responce
+    clip: {fileID: 8300000, guid: 1b7736b9b002a3343a90d373c8f35ac5, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Don't Touch 1
+    clip: {fileID: 8300000, guid: 6debf7334c46d634c8d1aa04a9226fd6, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Don't Touch 2
+    clip: {fileID: 8300000, guid: 4928cc45291986b438e58c45525076d5, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Don't Touch 3
+    clip: {fileID: 8300000, guid: 5185fd1b815c09a45b7f33df5e69a18f, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Don't Touch 4
+    clip: {fileID: 8300000, guid: fe50e88e1afbfd7408f9acac93c6ccbf, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Don't Touch 5
+    clip: {fileID: 8300000, guid: f678c04f783aad74180dcfc7fd05e5da, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Wrong 1
+    clip: {fileID: 8300000, guid: eed6e84e3957bbc4cb42c3264a1986a6, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Wrong 2
+    clip: {fileID: 8300000, guid: 1a93b93c17005e94e88cf93c39dd6840, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Wrong 3
+    clip: {fileID: 8300000, guid: e495e75f88bd1d3408b03a44369e62aa, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Wrong 4
+    clip: {fileID: 8300000, guid: 568f7d139301d6649ba08da5d855d6ad, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Wrong 5
+    clip: {fileID: 8300000, guid: 1fd6f10f14194b7488400535403c4b97, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Wrong 6
+    clip: {fileID: 8300000, guid: 61bbf12ceae620d459208fc7f363319c, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Hurry Up 1
+    clip: {fileID: 8300000, guid: 9a6cd3bc309f8c74583c51f3ebb45d37, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Hurry Up 2
+    clip: {fileID: 8300000, guid: 5844568bcddcc2f469d6ee2b8e389690, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Hurry Up 3
+    clip: {fileID: 8300000, guid: 6225eb8b20a0c36438e6100e2d6245a3, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Hurry Up 4
+    clip: {fileID: 8300000, guid: e633f7b10611988448cc1712c84e9a88, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Pain 1
+    clip: {fileID: 8300000, guid: acbcbe5b32b5ce749b77e3bf07e8782b, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Pain 2
+    clip: {fileID: 8300000, guid: 94de35a4c1483ca4e9969aed36192bf6, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Pain 3
+    clip: {fileID: 8300000, guid: 6e695ee7039d4384ea332962e8df6de7, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Pain 4
+    clip: {fileID: 8300000, guid: 79a3ad13bc44032428c12f5f574ae211, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Pain 5
+    clip: {fileID: 8300000, guid: 9888e4d5b2f059a488562e387a6253bc, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Pain 6
+    clip: {fileID: 8300000, guid: 1b7736b9b002a3343a90d373c8f35ac5, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Wire Puzzle Start
+    clip: {fileID: 8300000, guid: c5027c72ac140914fb5c0f3f1bab3658, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Slip Up
+    clip: {fileID: 8300000, guid: 12afce669ab39e444a3b728622b9ed84, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Final Speech
+    clip: {fileID: 8300000, guid: 3aab9f8bc9d058c43a5c52f1893e3778, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  - clipName: Numpad Puzzle Success
+    clip: {fileID: 8300000, guid: 787965ff619a5af4c982017a40940ded, type: 3}
+    isMusic: 0
+    threeD: 0
+    mute: 0
+    loop: 0
+    ignorePause: 0
+    source: {fileID: 0}
+  WrongString: 'Wrong '
+  MaxWrongIndex: 7
+  HurryUpString: Hurry Up
+  MaxHurryIndex: 5
+  DontTouchString: 'Don''t Touch '
+  MaxTouchIndex: 7
+  PainString: 'Pain '
+  MaxPainIndex: 7

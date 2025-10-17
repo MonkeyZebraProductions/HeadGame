@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using Unity.Mathematics;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,8 +11,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField] float musicVolume;
 
     public Sound[] sounds;
-    public string[] Insults;
-
+    public string WrongString = "Wrong ";
+    public int MaxWrongIndex = 7;
+    public string HurryUpString = "Hurry Up";
+    public int MaxHurryIndex = 5;
+    public string DontTouchString = "Don't Touch ";
+    public int MaxTouchIndex = 6;
+    public string PainString = "Pain ";
+    public int MaxPainIndex = 7;
     void Awake()
     {
         foreach (Sound s in sounds)
@@ -123,6 +130,70 @@ public class AudioManager : MonoBehaviour
         }
         
         if (!s.source.isPlaying) s.source.Play();
+    }
+
+    public void PlayRandomPain()
+    {
+        int randomIndex = UnityEngine.Random.Range(1, MaxPainIndex);
+
+        Sound s = Array.Find(sounds, sound => sound.clipName == PainString + randomIndex);
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+
+        s.source.Play();
+
+    }
+
+    public void PlayRandomWrong()
+    {
+        int randomIndex = UnityEngine.Random.Range(1, MaxWrongIndex);
+
+        Sound s = Array.Find(sounds, sound => sound.clipName == WrongString + randomIndex);
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+
+        s.source.Play();
+
+    }
+
+    public void PlayRandomDontTouch()
+    {
+        int randomIndex = UnityEngine.Random.Range(1, MaxTouchIndex);
+
+        Sound s = Array.Find(sounds, sound => sound.clipName == DontTouchString + randomIndex);
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+
+        s.source.Play();
+
+    }
+
+    public void PlayRandomHurryUp()
+    {
+        int randomIndex = UnityEngine.Random.Range(1, MaxHurryIndex);
+
+        Sound s = Array.Find(sounds, sound => sound.clipName == HurryUpString + randomIndex);
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+
+        s.source.Play();
+
     }
 
     public void Play3D(string name, Vector3 position)

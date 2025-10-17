@@ -11,6 +11,7 @@ public class ChangeCameraWithArduino : MonoBehaviour
     [SerializeField] int MaxCameraHeight = 324;
     [SerializeField] int FinalClick = 19;
     bool PuzzleComplete = false;
+    [SerializeField] bool DebugFullResolution;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +22,11 @@ public class ChangeCameraWithArduino : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (DebugFullResolution)
+        {
+            ResizeRenderTexture(WebCamTexture, WebCam, MaxCameraWidth, MaxCameraHeight);
+        }
         string message = serialController.ReadSerialMessage();
 
         if (message == null || PuzzleComplete)

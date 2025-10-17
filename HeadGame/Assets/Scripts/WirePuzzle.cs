@@ -9,6 +9,7 @@ public class WirePuzzle : MonoBehaviour
     bool[] WireConnected = new bool[3];
     string[] MessagePeices = new string[3];
     bool puzzleCompleted;
+    [SerializeField] RawImage CameraImage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,8 +17,11 @@ public class WirePuzzle : MonoBehaviour
         {
             button.color = Color.red;
         }
-        
-            
+        if (CameraImage != null)
+        {
+            CameraImage.enabled = false;
+        }
+
     }
 
     // Update is called once per frame
@@ -29,11 +33,16 @@ public class WirePuzzle : MonoBehaviour
         {
             return;
         }
+        
         if (message == "Puzzle Complete!")
         {
             for (int i = 0; i < WireConnected.Length; i++)
             {
                 ButtonImages[i].color = Color.green;
+            }
+            if(CameraImage != null)
+            {
+                CameraImage.enabled = true;
             }
             puzzleCompleted = true;
         }
