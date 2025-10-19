@@ -8,9 +8,22 @@ public class ArduinoManager : MonoBehaviour
     public string portName = "dev/cu.usbmodem201912341"; // replace with your Arduino port
     public int baudRate = 9600;
 
-    private int keyCount = 0;
+    //private int keyCount = 0;
 
     private SerialPort port;
+
+    [Header("Keypad Puzzle")]
+    public string Key;
+    public int KeyCount;
+
+    [Header("Head Puzzle")]
+    public int[] WireValues = new int[3];
+
+    [Header("Three Switches Puzzle")]
+    public string[] SwitchStates = new string[3];
+
+    [Header("Emotions Puzzle")]
+    public int[] RGBValues = new int[3];
 
     private void Awake()
     {
@@ -83,13 +96,13 @@ public class ArduinoManager : MonoBehaviour
         }
         else if (msg.StartsWith("KEYPAD_PRESSED:"))
         {
-            string key = msg.Substring(15);
-            Debug.Log("Keypad pressed: " + key);
-            keyCount++;
+            Key = msg.Substring(15);
+            Debug.Log("Keypad pressed: " + Key);
+            KeyCount++;
 
-            if (keyCount == 4)
+            if (KeyCount == 4)
             {
-                keyCount = 0;
+                KeyCount = 0;
                 GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.HeadPuzzle);
 
             }
@@ -102,6 +115,9 @@ public class ArduinoManager : MonoBehaviour
             int val1 = int.Parse(parts[0]);
             int val2 = int.Parse(parts[1]);
             int val3 = int.Parse(parts[2]);
+            WireValues[0]= val1; 
+            WireValues[1]=val2; 
+            WireValues[2]=val3;
             Debug.Log($"Analog values: {val1}, {val2}, {val3}");
 
             // Example: check puzzle solved
@@ -117,6 +133,8 @@ public class ArduinoManager : MonoBehaviour
             long pos = long.Parse(msg.Substring(8));
             Debug.Log("Rotary Encoder: " + pos);
 
+            //Sync up on Moday About Rotary Puzzle
+
             if (pos > 10)
             {
                 GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.EmotionsState);
@@ -124,8 +142,8 @@ public class ArduinoManager : MonoBehaviour
         }
         else if (msg.StartsWith("SWITCHES:"))
         {
-            string[] states = msg.Substring(9).Split(',');
-            if (states.Length == 3 && states[0] == "ON" && states[1] == "ON" && states[2] == "ON")
+            SwitchStates = msg.Substring(9).Split(',');
+            if (SwitchStates.Length == 3 && SwitchStates[0] == "ON" && SwitchStates[1] == "ON" && SwitchStates[2] == "ON")
             {
                 GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.NobAndCameraState);
             }
@@ -136,6 +154,9 @@ public class ArduinoManager : MonoBehaviour
             int r = int.Parse(rgb[0]);
             int g = int.Parse(rgb[1]);
             int b = int.Parse(rgb[2]);
+            RGBValues[0] = r; 
+            RGBValues[1] = g; 
+            RGBValues[2] = b;
             Debug.Log($"RGB Sensor: {r},{g},{b}");
 
             // Example: detect colors
