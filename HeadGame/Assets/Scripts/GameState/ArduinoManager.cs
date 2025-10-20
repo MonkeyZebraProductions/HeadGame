@@ -163,14 +163,14 @@ public class ArduinoManager : MonoBehaviour
             RGBValues[0] = r; 
             RGBValues[1] = g; 
             RGBValues[2] = b;
-            Debug.Log($"RGB Sensor: {r},{g},{b}");
+            //Debug.Log($"RGB Sensor: {r},{g},{b}");
 
             // Example: detect colors
-            if (r > g + 100 && r > b + 100) {
-                Debug.Log("Red detected");
-                GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.EndSequence);
+            //if (r > g + 100 && r > b + 100) {
+            //    Debug.Log("Red detected");
+            //    GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.EndSequence);
 
-            }
+            //}
             // You can add green, blue, yellow detection logic here
         }
     }
