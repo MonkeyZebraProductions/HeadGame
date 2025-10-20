@@ -15,6 +15,7 @@ public class ArduinoManager : MonoBehaviour
     [Header("Keypad Puzzle")]
     public string Key;
     public int KeyCount;
+    string keyResult = "";
 
     [Header("Head Puzzle")]
     public int[] WireValues = new int[3];
@@ -31,7 +32,7 @@ public class ArduinoManager : MonoBehaviour
 
     private void Awake()
     {
-       GameStateManager.OnGameStateChanged += OnGameStateChanged;
+        GameStateManager.OnGameStateChanged += OnGameStateChanged;
 
     }
 
@@ -86,6 +87,11 @@ public class ArduinoManager : MonoBehaviour
         SendCommand("LCD:" + msg + "\n");
     }
 
+    private void UpdateCharacterOnLCD(string chr)
+    {
+        SendCommand("LCDCH:" + chr + "\n");
+    }
+
     private void ActivateSensor(string sensor)
     {
         SendCommand("ACTIVATE:" + sensor + "\n");
@@ -96,22 +102,37 @@ public class ArduinoManager : MonoBehaviour
     {
         if (msg == "TOUCH_DETECTED")
         {
+            Debug.Log("Touch Detected in unity");
+
             GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.BootSequence);
         }
         else if (msg.StartsWith("KEYPAD_PRESSED:"))
         {
             Key = msg.Substring(15);
             Debug.Log("Keypad pressed: " + Key);
+            keyResult = keyResult + Key;
+            UpdateCharacterOnLCD(Key);
             KeyCount++;
 
             if (KeyCount == 4)
             {
-                KeyCount = 0;
-                GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.HeadPuzzle);
+                if (keyResult.Equals("1314"))
+                {
+                    KeyCount = 0;
+                    keyResult = "";
+                    // Right Code
+                    GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.HeadPuzzle);
+                }
+                else
+                {
+                    UpdateLCD("Enter Code");
+                    Debug.Log("WRONG KEYPAD CODE");
+                    KeyCount = 0;
+                    keyResult = "";
 
+                }
             }
 
-            // Handle code entry in Unity
         }
         else if (msg.StartsWith("ANALOG:"))
         {
@@ -119,9 +140,9 @@ public class ArduinoManager : MonoBehaviour
             int val1 = int.Parse(parts[0]);
             int val2 = int.Parse(parts[1]);
             int val3 = int.Parse(parts[2]);
-            WireValues[0]= val1; 
-            WireValues[1]=val2; 
-            WireValues[2]=val3;
+            WireValues[0] = val1;
+            WireValues[1] = val2;
+            WireValues[2] = val3;
             //Debug.Log($"Analog values: {val1}, {val2}, {val3}");
 
             // Example: check puzzle solved
@@ -147,7 +168,7 @@ public class ArduinoManager : MonoBehaviour
         else if (msg.StartsWith("SWITCHES:"))
         {
             SwitchStates = msg.Substring(9).Split(',');
-            
+
             //Debug.Log(SwitchStates[0] + ", " + SwitchStates[1] + ", " + SwitchStates[2]);
             //if (SwitchStates.Length == 3 && SwitchStates[0] == "ON" && SwitchStates[1] == "ON" && SwitchStates[2] == "ON")
             //{
@@ -160,17 +181,18 @@ public class ArduinoManager : MonoBehaviour
             int r = int.Parse(rgb[0]);
             int g = int.Parse(rgb[1]);
             int b = int.Parse(rgb[2]);
-            RGBValues[0] = r; 
-            RGBValues[1] = g; 
+            RGBValues[0] = r;
+            RGBValues[1] = g;
             RGBValues[2] = b;
-            //Debug.Log($"RGB Sensor: {r},{g},{b}");
+            Debug.Log($"RGB Sensor: {r},{g},{b}");
 
             // Example: detect colors
-            //if (r > g + 100 && r > b + 100) {
-            //    Debug.Log("Red detected");
-            //    GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.EndSequence);
+            if (r > g + 100 && r > b + 100)
+            {
+                Debug.Log("Red detected");
+                GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.EndSequence);
 
-            //}
+            }
             // You can add green, blue, yellow detection logic here
         }
     }
