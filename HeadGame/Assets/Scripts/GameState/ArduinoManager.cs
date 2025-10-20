@@ -64,7 +64,7 @@ public class ArduinoManager : MonoBehaviour
             string msg = port.ReadLine().Trim();
             if (!string.IsNullOrEmpty(msg))
             {
-                Debug.Log("Arduino: " + msg);
+                //Debug.Log("Arduino: " + msg);
                 HandleArduinoMessage(msg);
             }
         }
@@ -122,7 +122,7 @@ public class ArduinoManager : MonoBehaviour
             WireValues[0]= val1; 
             WireValues[1]=val2; 
             WireValues[2]=val3;
-            Debug.Log($"Analog values: {val1}, {val2}, {val3}");
+            //Debug.Log($"Analog values: {val1}, {val2}, {val3}");
 
             // Example: check puzzle solved
             if (val1 > 500 && val2 < 400 && val3 > 600)

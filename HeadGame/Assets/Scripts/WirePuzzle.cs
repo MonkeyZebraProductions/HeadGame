@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 //using UnityEngine.UIElements;
@@ -29,7 +30,7 @@ public class WirePuzzle : MonoBehaviour
     VoltageValue[] PrevVoltage = new VoltageValue[3];
     bool[] targetCorrect = { true, true, true };
 
-    bool playSound = true;
+    bool playSound = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -46,6 +47,8 @@ public class WirePuzzle : MonoBehaviour
             StartingArray.Remove(v);
         }
         Debug.Log(VoltageArray[0] + ", " + VoltageArray[1] + ", " + VoltageArray[2]);
+        PrevVoltage = VoltageArray;
+        gameStateManager.gamestate = GameStateManager.GameStatePS.HeadPuzzle;
     }
 
     // Update is called once per frame
@@ -60,8 +63,12 @@ public class WirePuzzle : MonoBehaviour
             return;
         }
 
-        if(WireConnected == targetCorrect)
-        { 
+        if(CheckResult())
+        {
+            if (audioManager != null)
+            {
+                audioManager.PlayIfNotPlaying("Puzzle Succeeded");
+            }
             gameStateManager.UpdateGameState(GameStateManager.GameStatePS.ThreeSwitches);
             return; 
         }
@@ -73,14 +80,7 @@ public class WirePuzzle : MonoBehaviour
         CurrentVoltage[2] = A2VoltageValue;
 
         CheckVoltages();
-        if(playSound)
-        {
-            if (audioManager != null)
-            {
-                audioManager.Play("Click");
-            }
-            playSound = false;
-        }
+        Debug.Log(targetCorrect);
     }
 
     void CheckVoltages()
@@ -96,12 +96,28 @@ public class WirePuzzle : MonoBehaviour
                 WireConnected[i] = false;
             }
             ButtonImages[i].color = (WireConnected[i] ? Color.green : Color.red);
-            if (PrevVoltage[i] != CurrentVoltage[i])
-            {
-                playSound = true;
-            }
-            PrevVoltage[i] = CurrentVoltage[i];
         }
+        if (PrevVoltage != CurrentVoltage)
+        {
+            if (audioManager != null)
+            {
+                //audioManager.PlayIfNotPlaying("Click");
+            }
+            PrevVoltage = CurrentVoltage;
+        }
+    }
+
+    bool CheckResult()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (WireConnected[i] != targetCorrect[i])
+            {
+                return false;
+            }
+            
+        }
+        return true;
     }
 
     void AnalogReads()

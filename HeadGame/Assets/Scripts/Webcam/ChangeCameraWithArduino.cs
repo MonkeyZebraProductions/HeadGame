@@ -20,7 +20,7 @@ public class ChangeCameraWithArduino : MonoBehaviour
     {
         //serialController = GameObject.Find("SerialController").GetComponent<SerialController>();
         ResizeRenderTexture(WebCamTexture, WebCam, 16, 9);
-        gameStateManager.gamestate = GameStateManager.GameStatePS.NobAndCameraState;
+        //gameStateManager.gamestate = GameStateManager.GameStatePS.NobAndCameraState;
     }
 
     // Update is called once per frame
