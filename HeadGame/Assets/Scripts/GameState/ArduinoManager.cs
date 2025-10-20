@@ -125,10 +125,10 @@ public class ArduinoManager : MonoBehaviour
             //Debug.Log($"Analog values: {val1}, {val2}, {val3}");
 
             // Example: check puzzle solved
-            if (val1 > 500 && val2 < 400 && val3 > 600)
-            {
-                GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.ThreeSwitches);
-            }
+            //if (val1 > 500 && val2 < 400 && val3 > 600)
+            //{
+            //    GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.ThreeSwitches);
+            //}
 
 
         }
@@ -147,10 +147,12 @@ public class ArduinoManager : MonoBehaviour
         else if (msg.StartsWith("SWITCHES:"))
         {
             SwitchStates = msg.Substring(9).Split(',');
-            if (SwitchStates.Length == 3 && SwitchStates[0] == "ON" && SwitchStates[1] == "ON" && SwitchStates[2] == "ON")
-            {
-                GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.NobAndCameraState);
-            }
+            
+            //Debug.Log(SwitchStates[0] + ", " + SwitchStates[1] + ", " + SwitchStates[2]);
+            //if (SwitchStates.Length == 3 && SwitchStates[0] == "ON" && SwitchStates[1] == "ON" && SwitchStates[2] == "ON")
+            //{
+            //    GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.NobAndCameraState);
+            //}
         }
         else if (msg.StartsWith("RGB:"))
         {

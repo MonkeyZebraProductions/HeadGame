@@ -48,7 +48,7 @@ public class WirePuzzle : MonoBehaviour
         }
         Debug.Log(VoltageArray[0] + ", " + VoltageArray[1] + ", " + VoltageArray[2]);
         PrevVoltage = VoltageArray;
-        gameStateManager.gamestate = GameStateManager.GameStatePS.HeadPuzzle;
+        //gameStateManager.gamestate = GameStateManager.GameStatePS.HeadPuzzle;
     }
 
     // Update is called once per frame
@@ -57,8 +57,7 @@ public class WirePuzzle : MonoBehaviour
 
         //string message = serialController.ReadSerialMessage();
 
-        if (arduinoManager == null || gameStateManager == null || gameStateManager.gamestate != GameStateManager.GameStatePS.HeadPuzzle 
-            || puzzleCompleted)
+        if (arduinoManager == null || gameStateManager == null || gameStateManager.gamestate != GameStateManager.GameStatePS.HeadPuzzle)
         {
             return;
         }
