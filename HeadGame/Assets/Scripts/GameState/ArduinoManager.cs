@@ -22,6 +22,10 @@ public class ArduinoManager : MonoBehaviour
     [Header("Three Switches Puzzle")]
     public string[] SwitchStates = new string[3];
 
+    [Header("Nob and Camera Puzzle")]
+    public long Pos;
+
+
     [Header("Emotions Puzzle")]
     public int[] RGBValues = new int[3];
 
@@ -130,15 +134,15 @@ public class ArduinoManager : MonoBehaviour
         }
         else if (msg.StartsWith("ENCODER:"))
         {
-            long pos = long.Parse(msg.Substring(8));
-            Debug.Log("Rotary Encoder: " + pos);
+            Pos = long.Parse(msg.Substring(8));
+            Debug.Log("Rotary Encoder: " + Pos);
 
             //Sync up on Moday About Rotary Puzzle
 
-            if (pos > 10)
-            {
-                GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.EmotionsState);
-            }
+            //if (pos > 10)
+            //{
+            //    GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.EmotionsState);
+            //}
         }
         else if (msg.StartsWith("SWITCHES:"))
         {
