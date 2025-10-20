@@ -20,7 +20,8 @@ public class EmotionsPuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (arduinoManager == null || gameStateManager == null || audioManager == null)
+        if (arduinoManager == null || gameStateManager == null || audioManager == null || 
+            gameStateManager.gamestate != GameStateManager.GameStatePS.EmotionsState)
         {
             //Debug.Log("RETURN");
             return;
