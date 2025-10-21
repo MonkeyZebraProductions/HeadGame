@@ -214,7 +214,6 @@ public class ArduinoManager : MonoBehaviour
 
             case GameStateManager.GameStatePS.HeadPuzzle:
                 ActivateSensor("ANALOG");
-                ActivateSensor("ENCODER"); // optional: read rotary simultaneously
                 UpdateLCD("Head Puzzle...");
                 break;
 
@@ -225,6 +224,7 @@ public class ArduinoManager : MonoBehaviour
 
             case GameStateManager.GameStatePS.NobAndCameraState:
                 UpdateLCD("Unity Camera...");
+                ActivateSensor("ENCODER");
                 break;
 
             case GameStateManager.GameStatePS.EmotionsState:
