@@ -8,6 +8,7 @@ public class SwitchPuzzle : MonoBehaviour
     [SerializeField] AudioManager audioManager;
     [SerializeField] GameStateManager gameStateManager;
     [SerializeField] Image[] ButtonImages;
+    [SerializeField] RawImage WebcamImage;
 
     bool[] SwitchState = new bool[3];
     bool[] targetState = new bool[3];
@@ -47,6 +48,10 @@ public class SwitchPuzzle : MonoBehaviour
             if (audioManager != null)
             {
                 audioManager.PlayIfNotPlaying("Puzzle Succeeded");
+            }
+            if(WebcamImage != null)
+            {
+                WebcamImage.enabled = true;
             }
             gameStateManager.UpdateGameState(GameStateManager.GameStatePS.NobAndCameraState);
             return;
