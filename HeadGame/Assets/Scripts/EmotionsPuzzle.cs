@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EmotionsPuzzle : MonoBehaviour
 {
     [SerializeField] ArduinoManager arduinoManager;
     [SerializeField] AudioManager audioManager;
     [SerializeField] GameStateManager gameStateManager;
+
+    [SerializeField] Image[] EmotionImages;
+    [SerializeField] Image[] ResponceImages;
     enum Colour {RED, BLUE, YELLOW, NONE}
 
     Colour CurrentColour = Colour.NONE;
@@ -15,6 +19,29 @@ public class EmotionsPuzzle : MonoBehaviour
     void Start()
     {
         gameStateManager.gamestate = GameStateManager.GameStatePS.EmotionsState;
+
+        for(int i = 0; i < EmotionImages.Length; i++)
+        {
+            if (EmotionImages[i] != null && ResponceImages[i] != null)
+            {
+                EmotionImages[i].enabled = false;
+                ResponceImages[i].enabled = false;
+            }
+        }
+
+        EmotionImages[0].enabled = true;
+    }
+
+    private void ShowResponce(int index)
+    {
+        foreach (Image image in ResponceImages)
+        {
+            if(image != null)
+            {
+                image.enabled = false;
+            }
+        }
+        ResponceImages[index].enabled = true;
     }
 
     // Update is called once per frame
@@ -47,18 +74,21 @@ public class EmotionsPuzzle : MonoBehaviour
             {
                 CurrentColour = Colour.RED;
                 audioManager.PlayIfNotPlaying("Angry Responce");
+                ShowResponce(0);
                 Debug.Log("Red detected");
             }
             else if (r <50 && b > r + 50)
             {
                 CurrentColour = Colour.BLUE;
                 audioManager.PlayIfNotPlaying("Sad Responce");
+                ShowResponce(1);
                 Debug.Log("Blue detected");
             }
             else if (b < 50 && r > b + 50)
             {
                 CurrentColour = Colour.YELLOW;
                 audioManager.PlayIfNotPlaying("Happy Responce");
+                ShowResponce(2);
                 Debug.Log("Yellow detected");
             }
             else
@@ -75,13 +105,19 @@ public class EmotionsPuzzle : MonoBehaviour
                 case Colour.RED:
                     TargetColor = Colour.BLUE;
                     audioManager.Play("Sad");
+                    EmotionImages[0].enabled = false;
+                    EmotionImages[1].enabled = true;
                     break;
                 case Colour.BLUE:
                     audioManager.Play("Happy");
                     TargetColor = Colour.YELLOW;
+                    EmotionImages[1].enabled = false;
+                    EmotionImages[2].enabled = true;
                     break;
                 case Colour.YELLOW:
-                    TargetColor = Colour.NONE; 
+                    TargetColor = Colour.NONE;
+                    EmotionImages[2].enabled = false;
+                    //EmotionImages[1].enabled = true;
                     gameStateManager.UpdateGameState(GameStateManager.GameStatePS.EndSequence);
                     break;
             }
