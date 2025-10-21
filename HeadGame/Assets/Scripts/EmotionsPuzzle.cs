@@ -18,8 +18,6 @@ public class EmotionsPuzzle : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gameStateManager.gamestate = GameStateManager.GameStatePS.EmotionsState;
-
         for(int i = 0; i < EmotionImages.Length; i++)
         {
             if (EmotionImages[i] != null && ResponceImages[i] != null)
@@ -118,6 +116,7 @@ public class EmotionsPuzzle : MonoBehaviour
                     TargetColor = Colour.NONE;
                     EmotionImages[2].enabled = false;
                     //EmotionImages[1].enabled = true;
+                    audioManager.Play("Final Speech");
                     gameStateManager.UpdateGameState(GameStateManager.GameStatePS.EndSequence);
                     break;
             }

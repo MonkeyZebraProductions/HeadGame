@@ -48,6 +48,7 @@ public class SwitchPuzzle : MonoBehaviour
             if (audioManager != null)
             {
                 audioManager.PlayIfNotPlaying("Puzzle Succeeded");
+                audioManager.Play("Camera Tuning Start");
             }
             if(WebcamImage != null)
             {

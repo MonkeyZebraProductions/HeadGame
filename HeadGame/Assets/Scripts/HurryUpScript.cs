@@ -17,7 +17,7 @@ public class HurryUpScript : MonoBehaviour
     void Update()
     {
         if (gameStateManager == null || gameStateManager.gamestate != GameStateManager.GameStatePS.Intro
-            || gameStateManager.gamestate != GameStateManager.GameStatePS.EndSequence)
+            || gameStateManager.gamestate != GameStateManager.GameStatePS.EndSequence || gameStateManager.gamestate != GameStateManager.GameStatePS.BootSequence)
         {
             return;
         }

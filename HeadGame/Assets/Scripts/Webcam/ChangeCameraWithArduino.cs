@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -51,6 +52,7 @@ public class ChangeCameraWithArduino : MonoBehaviour
             if(audioManager != null)
             {
                 audioManager.Play("Puzzle Succeeded");
+                StartCoroutine(PlaySucessSounds());
             }
             //Play Audio File
         }
@@ -63,5 +65,14 @@ public class ChangeCameraWithArduino : MonoBehaviour
         renderTexture.width = width;
         renderTexture.height = height;
         camera.ResetAspect();  //retain the correct aspect ratio this will change zoom levels based on aspect ratio
+    }
+
+    IEnumerator PlaySucessSounds()
+    {
+        audioManager.Play("Camera Tuning Success");
+        yield return new WaitForSeconds(audioManager.Length("Camera Tuning Success"));
+        audioManager.Play("Emotion Puzzle Start Part 1");
+        yield return new WaitForSeconds(audioManager.Length("Emotion Puzzle Start Part 1"));
+        audioManager.Play("Emotion Puzzle Start Part 2");
     }
 }

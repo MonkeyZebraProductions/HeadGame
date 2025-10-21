@@ -67,6 +67,7 @@ public class WirePuzzle : MonoBehaviour
             if (audioManager != null)
             {
                 audioManager.PlayIfNotPlaying("Puzzle Succeeded");
+                audioManager.PlayIfNotPlaying("Camera Puzzle Start");
             }
             gameStateManager.UpdateGameState(GameStateManager.GameStatePS.ThreeSwitches);
             return; 
