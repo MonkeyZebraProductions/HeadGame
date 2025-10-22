@@ -10,16 +10,16 @@ public class WebcamSetup : MonoBehaviour
     {
         WebCamDevice my_device = new WebCamDevice();
         WebCamDevice[] webCamDevices= WebCamTexture.devices;
-        foreach (WebCamDevice currentDevice in webCamDevices)
-        {
-            Debug.Log(currentDevice.name);
-        }
+        //foreach (WebCamDevice currentDevice in webCamDevices)
+        //{
+        //    Debug.Log(currentDevice.name);
+        //}
         my_device = webCamDevices[CameraIndex];
         camTexture = new WebCamTexture(my_device.name);
         Renderer renderer = GetComponent<Renderer>();
         renderer.material.mainTexture = camTexture;
         camTexture.Play();
-        Debug.Log(camTexture.width + ", " + camTexture.height);
+        //Debug.Log(camTexture.width + ", " + camTexture.height);
     }
 
     // Update is called once per frame

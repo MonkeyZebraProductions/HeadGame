@@ -11,7 +11,7 @@ public class FakeLoadingScreen : MonoBehaviour
     {
         canvas = GetComponent<Canvas>();
         slider = GetComponentInChildren<Slider>();
-        canvas.enabled = false;
+        //canvas.enabled = false;
     }
 
     // Update is called once per frame

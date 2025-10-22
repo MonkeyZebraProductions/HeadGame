@@ -30,7 +30,6 @@ public class WirePuzzle : MonoBehaviour
     VoltageValue[] PrevVoltage = new VoltageValue[3];
     bool[] targetCorrect = { true, true, true };
 
-    bool playSound = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -80,7 +79,7 @@ public class WirePuzzle : MonoBehaviour
         CurrentVoltage[2] = A2VoltageValue;
 
         CheckVoltages();
-        Debug.Log(targetCorrect);
+        Debug.Log(CurrentVoltage[0] + ", " + CurrentVoltage[1] + ", " + CurrentVoltage[2]);
     }
 
     void CheckVoltages()

@@ -25,13 +25,6 @@ public class SwitchPuzzle : MonoBehaviour
         {
             button.color = Color.red;
         }
-        StartCoroutine(DelayedStart());
-    }
-
-    IEnumerator DelayedStart()
-    {
-        yield return new WaitForSeconds(1);
-        gameStateManager.gamestate = GameStateManager.GameStatePS.ThreeSwitches;
     }
 
     // Update is called once per frame
@@ -39,11 +32,10 @@ public class SwitchPuzzle : MonoBehaviour
     {
         if (arduinoManager == null || gameStateManager == null || gameStateManager.gamestate != GameStateManager.GameStatePS.ThreeSwitches)
         {
-            Debug.Log(gameStateManager.gamestate);
             return;
         }
 
-        if (CheckResult())
+        if (CheckResult() == true)
         {
             if (audioManager != null)
             {

@@ -629,12 +629,20 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6344099826814161232, guid: c0adf2eef6298cd4bb3267db23a4aab9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6539880603188454628, guid: c0adf2eef6298cd4bb3267db23a4aab9, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1427710765}
     - target: {fileID: 6539880603188454628, guid: c0adf2eef6298cd4bb3267db23a4aab9, type: 3}
       propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6539880603188454628, guid: c0adf2eef6298cd4bb3267db23a4aab9, type: 3}
+      propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7857353614668905947, guid: c0adf2eef6298cd4bb3267db23a4aab9, type: 3}
@@ -1000,7 +1008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2753917223411715608, guid: cb9ccb0a1bd34c94cb3b9ce65a5881c9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3502325935270461615, guid: cb9ccb0a1bd34c94cb3b9ce65a5881c9, type: 3}
       propertyPath: m_Pivot.x
@@ -1114,9 +1122,13 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5929340496136295003, guid: cb9ccb0a1bd34c94cb3b9ce65a5881c9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6041294925992175489, guid: cb9ccb0a1bd34c94cb3b9ce65a5881c9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8260856372273275325, guid: cb9ccb0a1bd34c94cb3b9ce65a5881c9, type: 3}
       propertyPath: gameStateManager

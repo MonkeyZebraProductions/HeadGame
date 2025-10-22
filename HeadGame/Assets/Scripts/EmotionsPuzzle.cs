@@ -52,14 +52,14 @@ public class EmotionsPuzzle : MonoBehaviour
             return;
         }
 
-        if (!puzzleStarted)
-        {
-            if(audioManager != null)
-            {
-                audioManager.Play("Angry");
-            }
-            puzzleStarted = true;
-        }
+        //if (!puzzleStarted)
+        //{
+        //    if(audioManager != null)
+        //    {
+        //        audioManager.Play("Angry");
+        //    }
+        //    puzzleStarted = true;
+        //}
 
         int r = arduinoManager.RGBValues[0];
         int g = arduinoManager.RGBValues[1];
@@ -68,7 +68,7 @@ public class EmotionsPuzzle : MonoBehaviour
         //Debug.Log($"RGB Sensor: {r},{g},{b}");
         if (!audioManager.IsPlaying("Angry") && !audioManager.IsPlaying("Sad") && !audioManager.IsPlaying("Happy"))
         {
-            if (r > g + 100 && r > b + 100)
+            if (r > g + 80 && r > b + 80)
             {
                 CurrentColour = Colour.RED;
                 audioManager.PlayIfNotPlaying("Angry Responce");
