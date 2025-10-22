@@ -30,6 +30,8 @@ public class ArduinoManager : MonoBehaviour
     [Header("Emotions Puzzle")]
     public int[] RGBValues = new int[3];
 
+    private AudioManager audioManager;
+
     private void Awake()
     {
         GameStateManager.OnGameStateChanged += OnGameStateChanged;
@@ -40,6 +42,8 @@ public class ArduinoManager : MonoBehaviour
     {
         port = new SerialPort(portName, baudRate);
         port.ReadTimeout = 50;
+
+        audioManager = FindAnyObjectByType<AudioManager>();
 
         try
         {
@@ -103,6 +107,7 @@ public class ArduinoManager : MonoBehaviour
         if (msg == "TOUCH_DETECTED")
         {
             Debug.Log("Touch Detected in unity");
+            audioManager.Play("Boot Audio");
 
             GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.BootSequence);
         }
@@ -121,6 +126,9 @@ public class ArduinoManager : MonoBehaviour
                     KeyCount = 0;
                     keyResult = "";
                     // Right Code
+                    audioManager.Stop("Boot Audio");
+                    audioManager.Play("Puzzle Succeeded");
+                    audioManager.Play("Numpad Puzzle Success");
                     GameStateManager.Instance.UpdateGameState(GameStateManager.GameStatePS.HeadPuzzle);
                 }
                 else
