@@ -35,6 +35,13 @@ public class SwitchPuzzle : MonoBehaviour
             return;
         }
 
+        for (int i = 0; i < 3; i++)
+        {
+            Debug.Log(arduinoManager.SwitchStates[i]);
+            SwitchState[i] = (arduinoManager.SwitchStates[i] == "ON" ? true : false);
+            ButtonImages[i].color = (SwitchState[i] == targetState[i] ? Color.green : Color.red);
+        }
+
         if (CheckResult() == true)
         {
             if (audioManager != null)
@@ -51,12 +58,6 @@ public class SwitchPuzzle : MonoBehaviour
         }
 
 
-        for (int i = 0; i < 3; i++)
-        {
-            Debug.Log(arduinoManager.SwitchStates[i]);
-            SwitchState[i] = (arduinoManager.SwitchStates[i] == "ON" ? true:false);
-            ButtonImages[i].color = (SwitchState[i] ? Color.green : Color.red);
-        }
     }
 
     bool CheckResult()

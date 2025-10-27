@@ -74,6 +74,7 @@ public class ArduinoManager : MonoBehaviour
             }
         }
         catch { /* ignore timeout exceptions */ }
+        //port.DiscardInBuffer();
     }
 
     // ---------------- Send Commands to Arduino ----------------
@@ -222,26 +223,26 @@ public class ArduinoManager : MonoBehaviour
 
             case GameStateManager.GameStatePS.HeadPuzzle:
                 ActivateSensor("ANALOG");
-                UpdateLCD("Head Puzzle...");
+                UpdateLCD("Rewire Brain");
                 break;
 
             case GameStateManager.GameStatePS.ThreeSwitches:
                 ActivateSensor("SWITCHES");
-                UpdateLCD("Toggle Switches");
+                UpdateLCD("Turn On Sight");
                 break;
 
             case GameStateManager.GameStatePS.NobAndCameraState:
-                UpdateLCD("Unity Camera...");
+                UpdateLCD("Tune Sight. It's Blurry");
                 ActivateSensor("ENCODER");
                 break;
 
             case GameStateManager.GameStatePS.EmotionsState:
                 ActivateSensor("RGB");
-                UpdateLCD("Emotion Puzzle");
+                UpdateLCD("Left Eye Emotion Calibration");
                 break;
 
             case GameStateManager.GameStatePS.EndSequence:
-                UpdateLCD("Game Complete!");
+                UpdateLCD("I Love You");
                 break;
         }
     }

@@ -72,9 +72,9 @@ public class ChangeCameraWithArduino : MonoBehaviour
         audioManager.Play("Camera Tuning Success");
         yield return new WaitForSeconds(audioManager.Length("Camera Tuning Success"));
         audioManager.Play("Emotion Puzzle Start Part 1");
-        yield return new WaitForSeconds(audioManager.Length("Emotion Puzzle Start Part 1"));
+        yield return new WaitForSeconds(12f);
         audioManager.Play("Emotion Puzzle Start Part 2");
-        yield return new WaitForSeconds(audioManager.Length("Emotion Puzzle Start Part 2"));
+        yield return new WaitForSeconds(12f);
         audioManager.Play("Angry");
     }
 }

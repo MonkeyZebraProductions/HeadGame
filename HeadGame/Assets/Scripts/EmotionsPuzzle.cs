@@ -9,6 +9,7 @@ public class EmotionsPuzzle : MonoBehaviour
 
     [SerializeField] Image[] EmotionImages;
     [SerializeField] Image[] ResponceImages;
+    [SerializeField] GameObject FinalScreen;
     enum Colour {RED, BLUE, YELLOW, NONE}
 
     Colour CurrentColour = Colour.NONE;
@@ -26,7 +27,7 @@ public class EmotionsPuzzle : MonoBehaviour
                 ResponceImages[i].enabled = false;
             }
         }
-
+        FinalScreen.SetActive(false);
         EmotionImages[0].enabled = true;
     }
 
@@ -118,6 +119,7 @@ public class EmotionsPuzzle : MonoBehaviour
                     //EmotionImages[1].enabled = true;
                     audioManager.Play("Final Speech");
                     gameStateManager.UpdateGameState(GameStateManager.GameStatePS.EndSequence);
+                    FinalScreen.SetActive(true);
                     break;
             }
         }
