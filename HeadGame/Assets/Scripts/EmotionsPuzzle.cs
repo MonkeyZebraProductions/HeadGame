@@ -69,21 +69,21 @@ public class EmotionsPuzzle : MonoBehaviour
         //Debug.Log($"RGB Sensor: {r},{g},{b}");
         if (!audioManager.IsPlaying("Angry") && !audioManager.IsPlaying("Sad") && !audioManager.IsPlaying("Happy"))
         {
-            if (r > g + 50 && r > b + 50)
+            if (r > g + 20 && r > b + 20)
             {
                 CurrentColour = Colour.RED;
                 audioManager.PlayIfNotPlaying("Angry Responce");
                 ShowResponce(0);
                 Debug.Log("Red detected");
             }
-            else if (r <50 && b > r + 50)
+            else if (r <70 && b > r + 20)
             {
                 CurrentColour = Colour.BLUE;
                 audioManager.PlayIfNotPlaying("Sad Responce");
                 ShowResponce(1);
                 Debug.Log("Blue detected");
             }
-            else if (b < 50 && r > b + 50)
+            else if (b < 70 && r > b + 20)
             {
                 CurrentColour = Colour.YELLOW;
                 audioManager.PlayIfNotPlaying("Happy Responce");

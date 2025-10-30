@@ -213,7 +213,7 @@ public class ArduinoManager : MonoBehaviour
         {
             case GameStateManager.GameStatePS.Intro:
                 ActivateSensor("TOUCH");
-                UpdateLCD("Touch to Start");
+                UpdateLCD("Touch Me");
                 break;
 
             case GameStateManager.GameStatePS.BootSequence:
@@ -228,7 +228,7 @@ public class ArduinoManager : MonoBehaviour
 
             case GameStateManager.GameStatePS.ThreeSwitches:
                 ActivateSensor("SWITCHES");
-                UpdateLCD("Turn On Sight");
+                UpdateLCD("Switch On Sight");
                 break;
 
             case GameStateManager.GameStatePS.NobAndCameraState:
