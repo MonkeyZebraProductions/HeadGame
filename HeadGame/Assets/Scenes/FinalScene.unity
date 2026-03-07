@@ -223,6 +223,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4024259231617115667, guid: a4982fe9e4f63ec43ac3403e79e2ab0f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024259231617115667, guid: a4982fe9e4f63ec43ac3403e79e2ab0f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024259231617115667, guid: a4982fe9e4f63ec43ac3403e79e2ab0f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024259231617115667, guid: a4982fe9e4f63ec43ac3403e79e2ab0f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 293.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4024259231617115667, guid: a4982fe9e4f63ec43ac3403e79e2ab0f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5682977896523404252, guid: a4982fe9e4f63ec43ac3403e79e2ab0f, type: 3}
       propertyPath: m_Name
       value: Webcam Canvas
